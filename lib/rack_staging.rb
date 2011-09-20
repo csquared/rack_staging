@@ -14,8 +14,7 @@ module Rack
     end
     
     def call(env)
-      @env = env
-      if @staging_detect.call(@env)
+      if @staging_detect.call(env)
         return robots_txt if robots_txt?(env)
         super
       else
